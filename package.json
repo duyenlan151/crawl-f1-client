@@ -1,0 +1,73 @@
+{
+  "name": "react-template-for-starter",
+  "author": "NuiCoder",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext js,ts,tsx",
+    "format": "prettier --write **/*.{js,ts,tsx} && eslint . --ext js,ts,tsx --fix",
+    "preview": "vite preview",
+    "postinstall": "bash postinstall.sh",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commint": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "eslint --ext ./src --fix"
+    ],
+    "./src/**": [
+      "prettier --write ."
+    ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.1",
+    "@tanstack/react-query": "^4.35.3",
+    "axios": "^1.5.0",
+    "ramda": "^0.30.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.11",
+    "react-hook-form": "^7.47.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.30.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-testing-library": "^6.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "postcss": "^8.4.30",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}
