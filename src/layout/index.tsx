@@ -11,7 +11,7 @@ const LayoutComponent = () => {
   return (
     <>
       <HeaderComponent />
-      <main className="container mx-auto mt-12 p-12 min-h-[calc(100vh-100px)]">
+      <main className="container mx-auto mt-24 bg-white p-12 min-h-[calc(100vh-100px)]">
         <ErrorBoundary fallbackRender={fallbackRender}>
           <Suspense
             fallback={

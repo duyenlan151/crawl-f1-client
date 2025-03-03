@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  ignorePatterns: ['./tsconfig.json', "*.css"],
+  ignorePatterns: ['./tsconfig.json', '*.css'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -27,9 +27,9 @@ module.exports = {
       },
     },
     {
-      "files": ["*.css"],
-      "parser": "postcss"
-    }
+      files: ['*.css'],
+      parser: 'postcss',
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

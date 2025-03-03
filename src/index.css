@@ -54,56 +54,62 @@
 
   body {
     background-color: var(--bg-color);
-    @apply bg-background text-foreground;
-  }
-
-  * {
-    @apply border-border;
   }
 }
 
-@layer components {
-  .bg-grey-10 {
-    background-color: var(--bg-grey-10);
-  }
+.bg-grey-10 {
+  background-color: var(--bg-grey-10);
+}
 
-  .bg-primary {
-    background-color: rgb(225 6 0 / var(--tw-bg-opacity));
-  }
+.bg-primary {
+  background-color: rgb(225 6 0 / var(--tw-bg-opacity));
+}
 
-  .border-thead {
-    border-bottom: 1px solid var(--border-thead);
-  }
+.border-thead {
+  border-bottom: 1px solid var(--border-thead);
+}
 
-  .text-primary {
-    color: rgb(225 6 0 / var(--tw-bg-opacity));
-  }
+.text-primary {
+  color: rgb(225 6 0 / var(--tw-bg-opacity));
+}
 
-  .border-primary {
-    border-color: rgb(225 6 0 / var(--tw-bg-opacity));
-  }
+.border-primary {
+  border-color: rgb(225 6 0 / var(--tw-bg-opacity));
+}
 
-  .triangle-up::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 15%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid rgb(225 6 0 / var(--tw-bg-opacity));
-  }
+.triangle-up::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 15%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid rgb(225 6 0 / var(--tw-bg-opacity));
+}
 
-  .custom-tooltip {
-    padding: 10px;
-    font-size: 12px;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
+.custom-tooltip {
+  padding: 0.75rem;
+  min-width: 6.75rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  @apply text-xs text-left shadow;
+}
 
-  .chart-container {
-    min-height: 400px;
-    height: auto;
-  }
+.chart-container {
+  min-height: 400px;
+  height: auto;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.z-9999 {
+  z-index: 9999;
 }
