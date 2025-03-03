@@ -1,2 +1,2 @@
-export * from './string';
+export * from './char-helper';
 export * from './chart-helpers';

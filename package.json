@@ -42,6 +42,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
+    "recharts": "^2.15.1",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
@@ -51,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
@@ -64,9 +65,10 @@
     "eslint-plugin-testing-library": "^6.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "postcss": "^8.4.30",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
     "prettier": "^3.0.3",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
