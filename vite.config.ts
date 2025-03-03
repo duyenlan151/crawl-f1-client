@@ -4,17 +4,13 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       '@': path.join(__dirname, 'src'),
     },
   },
-  plugins: [
-    react({
-      // jsxImportSource: '@emotion/react',
-      // babel: {
-      //   plugins: ['@emotion/babel-plugin'],
-      // },
-    }),
-  ],
+  css: {
+    postcss: './postcss.config.js', // Point to PostCSS config
+  },
 });
