@@ -1,6 +1,5 @@
 // elements/dropdown.tsx (unchanged)
 import { useState, useEffect, useRef } from 'react';
-
 import { capitalizeFirstLetter } from '@/utils/';
 
 interface DropdownItem<T> {

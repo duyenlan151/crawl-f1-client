@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-
 import Filters from './components/filters';
 import GridToggle from './components/grid-toggle';
 import RaceTable from './components/race-table';
@@ -34,7 +33,7 @@ const lineChartCategories: ChartCategory[] = [
   'grandPrix',
 ];
 
-const Home: React.FC = () => {
+const Results: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [gridCols, setGridCols] = useState<number>(1);
   const { data, type, year, error } = useF1Data();
@@ -107,4 +106,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Results;

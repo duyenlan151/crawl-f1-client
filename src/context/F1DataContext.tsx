@@ -5,9 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react';
-
 import { toast } from 'react-hot-toast';
-
 import { getF1Metadata } from '@/features/f1/services/f1Service';
 import { IRaceData } from '@/models/chart';
 

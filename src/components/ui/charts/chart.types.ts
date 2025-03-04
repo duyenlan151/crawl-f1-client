@@ -1,4 +1,4 @@
-import { IRaceData } from '@models/chart';
+import { IRaceData } from '@/models/chart';
 
 // chart.types.ts
 export interface ChartData {

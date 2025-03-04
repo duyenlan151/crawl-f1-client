@@ -1,6 +1,5 @@
 // components/home/GridToggle.tsx
 import React from 'react';
-
 import { AiOutlineAppstore, AiOutlineMenu } from 'react-icons/ai';
 
 interface GridToggleProps {

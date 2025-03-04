@@ -1,11 +1,7 @@
 // components/RaceTable.tsx
 import React, { useState } from 'react';
-
 import Table from '@/components/ui/table/table';
-
-// eslint-disable-next-line import/order, no-restricted-imports
 import { Column } from '@/components/ui/table/table.props';
-
 import { IRaceData } from '@/models/chart';
 
 export type TableType = 'races' | 'drivers' | 'team' | 'fastest-laps';
