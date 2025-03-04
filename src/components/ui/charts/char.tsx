@@ -1,6 +1,5 @@
 // elements/charts.tsx
 import React from 'react';
-
 import {
   BarChart,
   Bar,
@@ -16,7 +15,6 @@ import {
   LineChart,
   Line,
 } from 'recharts';
-
 import {
   BarLabelProps,
   ChartProps,

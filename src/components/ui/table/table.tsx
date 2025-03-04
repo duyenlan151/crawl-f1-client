@@ -1,8 +1,6 @@
 // components/Table.tsx
 import { useMemo, ReactNode } from 'react';
-
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
-
 import { ITEMS_PER_PAGE_DEFAULT, TableProps } from './table.props';
 
 const Table = <T,>({
