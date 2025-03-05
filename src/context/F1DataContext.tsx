@@ -5,7 +5,10 @@ import React, {
   useEffect,
   useCallback,
 } from 'react';
+
 import { toast } from 'react-hot-toast';
+
+// eslint-disable-next-line no-restricted-imports
 import { getF1Metadata } from '@/features/f1/services/f1Service';
 import { IRaceData } from '@/models/chart';
 
@@ -35,6 +38,16 @@ interface F1DataState {
   setYear: (newYear: YearOptions) => void;
   setType: (newType: string) => void;
   setGrandPrix: (newGrandPrix: string | null) => void; // Updated to string | null
+
+  /** 🟢 Added state for progress */
+  progress: number;
+  message: string;
+  crawlLoading: boolean;
+  setCrawlProgress: (
+    progress: number,
+    message: string,
+    loading: boolean,
+  ) => void;
 }
 
 const F1DataContext = createContext<F1DataState | undefined>(undefined);
@@ -52,6 +65,10 @@ export const F1DataProvider: React.FC<{ children: React.ReactNode }> = ({
     year: '2024' as YearOptions,
     type: 'races' as string,
     grandPrix: 'All' as string,
+
+    progress: 0,
+    message: '',
+    crawlLoading: false,
   });
 
   const fetchData = useCallback(
@@ -120,11 +137,25 @@ export const F1DataProvider: React.FC<{ children: React.ReactNode }> = ({
     [fetchData, state.year, state.type],
   );
 
+  const setCrawlProgress = (
+    progress: number,
+    message: string,
+    loading: boolean,
+  ) => {
+    setState((prev) => ({
+      ...prev,
+      progress,
+      message,
+      crawlLoading: loading,
+    }));
+  };
+
   const value = {
     ...state,
     setYear,
     setType,
     setGrandPrix,
+    setCrawlProgress,
   };
 
   return (

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { Toaster } from 'react-hot-toast';
 
 type Props = {
@@ -10,11 +11,21 @@ type Props = {
     | 'bottom-center'
     | 'bottom-right';
   reverseOrder?: boolean;
+  duration?: number;
 };
 
 export const ToasterConfig: FC<Props> = ({
-  position = 'top-center',
+  position = 'top-right',
   reverseOrder = false,
+  duration = 3000,
 }) => {
-  return <Toaster position={position} reverseOrder={reverseOrder} />;
+  return (
+    <Toaster
+      position={position}
+      reverseOrder={reverseOrder}
+      toastOptions={{
+        duration,
+      }}
+    />
+  );
 };

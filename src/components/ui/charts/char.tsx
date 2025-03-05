@@ -1,5 +1,6 @@
 // elements/charts.tsx
 import React from 'react';
+
 import {
   BarChart,
   Bar,
@@ -15,6 +16,7 @@ import {
   LineChart,
   Line,
 } from 'recharts';
+
 import {
   BarLabelProps,
   ChartProps,
@@ -128,6 +130,7 @@ const chartConfig = {
 };
 
 const Chart: React.FC<ChartProps> = ({ data, type, category, title }) => {
+  console.log('🚀 ~ data:', data);
   const chartData: ChartData[] = transformDataForChart(data, category);
   const maxValue = Math.max(...chartData.map((item) => item.count), 0);
   const padding = maxValue > 5 ? maxValue * 0.1 : 2;
