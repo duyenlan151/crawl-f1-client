@@ -2,10 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import axios, { AxiosError } from 'axios';
 
+import { config } from '@/config';
 import { LOGIN_PATH } from '@/data';
 
 const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: config.API_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
