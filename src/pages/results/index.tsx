@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from 'react';
+
 import Filters from './components/filters';
 import GridToggle from './components/grid-toggle';
 import RaceTable from './components/race-table';
+// eslint-disable-next-line no-restricted-imports
 import Chart from '@/components/ui/charts';
+// eslint-disable-next-line no-restricted-imports
 import Tabs from '@/components/ui/tabs';
 import { useF1Data } from '@/context/F1DataContext';
 import { ChartType, ChartCategory } from '@/models/chart';
@@ -36,7 +39,7 @@ const lineChartCategories: ChartCategory[] = [
 const Results: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [gridCols, setGridCols] = useState<number>(1);
-  const { data, type, year, error } = useF1Data();
+  const { data, type, year } = useF1Data();
 
   const renderCharts = (
     chartType: ChartType,
@@ -61,10 +64,6 @@ const Results: React.FC = () => {
   const styleChart = useMemo(() => {
     return `grid-cols-${gridCols}`;
   }, [gridCols]);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   return (
     <div className="">

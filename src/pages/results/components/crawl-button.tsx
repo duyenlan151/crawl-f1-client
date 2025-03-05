@@ -1,34 +1,57 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+
+// eslint-disable-next-line no-restricted-imports
 import Button from '@/components/ui/button';
-import toast from 'react-hot-toast';
+import { config } from '@/config';
+import { useF1Data } from '@/context/F1DataContext';
+// eslint-disable-next-line no-restricted-imports
+import { crawlF1Metadata } from '@/features/f1/services/f1Service';
+import { useToast } from '@/hooks';
+import { socketService } from '@/services/socketService';
 
 const CrawlButton = () => {
-  const [loading, setLoading] = useState(false);
+  const { crawlLoading, progress, setCrawlProgress } = useF1Data();
+  const { toast } = useToast();
 
   const handleCrawl = async () => {
-    setLoading(true);
-    // toast.loading("Crawling data...", { id: "crawl" });
-
+    setCrawlProgress(0, 'Starting crawl...', true);
+    toast.loading('Starting crawl...');
     try {
-      const response = await fetch('http://localhost:3000/crawl', {
-        method: 'GET',
-      });
-      if (!response.ok) throw new Error('Crawl failed');
+      socketService.connect(config.WEBSOCKET_URL, 'startCrawl', (data) => {
+        const { progress, message, error } = data;
 
-      toast.success('Crawl successful!', { id: 'crawl' });
+        if (error) {
+          toast.error(error);
+          socketService.close();
+          return;
+        }
+
+        setCrawlProgress(progress || 0, message || '', progress !== 100);
+
+        if (progress === 100) {
+          toast.success(`${progress}%: ${message}`);
+          setTimeout(() => socketService.close(), 1000);
+        }
+      });
+
+      await crawlF1Metadata();
     } catch (error) {
-      toast.error('Crawl failed!', { id: 'crawl' });
-    } finally {
-      setLoading(false);
+      toast.error('Crawl failed!');
+      setCrawlProgress(0, 'Failed to crawl', false);
+      setTimeout(() => socketService.close(), 1000);
     }
   };
 
+  useEffect(() => {
+    return () => socketService.close();
+  }, []);
+
   return (
     <Button
-      label={loading ? 'Crawling...' : 'Crawl'}
+      label={crawlLoading ? `Crawling... (${progress}%)` : 'Crawl'}
       onClick={handleCrawl}
-      disabled={loading}
-      className={loading ? 'opacity-50 cursor-not-allowed' : ''}
+      disabled={crawlLoading}
+      className="transition-opacity duration-300"
     />
   );
 };

@@ -46,15 +46,17 @@ const RaceTable: React.FC<RaceTableProps> = ({ data, type }) => {
     type === 'races' || type === 'fastest-laps' ? 'grandPrix' : 'pos';
 
   return (
-    <Table
-      data={data}
-      columns={headers[type]}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
-      rowKey={rowKey}
-      emptyMessage={`No ${type} data found`}
-      invalidDataMessage={`Invalid ${type} data`}
-    />
+    <div className="mt-4">
+      <Table
+        data={data}
+        columns={headers[type]}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        rowKey={rowKey}
+        emptyMessage={`No ${type} data found`}
+        invalidDataMessage={`Invalid ${type} data`}
+      />
+    </div>
   );
 };
 

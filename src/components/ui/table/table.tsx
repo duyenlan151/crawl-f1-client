@@ -1,6 +1,8 @@
 // components/Table.tsx
 import { useMemo, ReactNode } from 'react';
+
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+
 import { ITEMS_PER_PAGE_DEFAULT, TableProps } from './table.props';
 
 const Table = <T,>({
@@ -10,9 +12,8 @@ const Table = <T,>({
   setCurrentPage,
   itemsPerPage = ITEMS_PER_PAGE_DEFAULT,
   emptyMessage = '😞 No Data Found',
-  invalidDataMessage = 'Invalid Data',
-} // rowKey,
-: TableProps<T>): ReactNode => {
+  invalidDataMessage = 'Invalid Data', // rowKey,
+}: TableProps<T>): ReactNode => {
   const paginatedData = useMemo(() => {
     if (!Array.isArray(data) || data.length === 0) return [];
     return data.slice(
