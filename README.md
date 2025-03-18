@@ -7,6 +7,21 @@ English
 ### Overview
 The F1 Crawler is a web application designed to fetch and display Formula 1 (F1) racing data from various sources. It allows users to explore historical and current F1 race results, team standings, driver statistics, and more. Built with modern web technologies, the app provides an interactive interface with real-time progress tracking during data crawling.
 
+### Demo
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <div style="width: 48%;">
+    <img src="./public//assets/demo/localhost_5173_results.png" width="100%">
+    <img src="./public//assets/demo/localhost_5173_ (1).png"  width="100%">
+    <img src="./public//assets/demo/localhost_5173_results (1).png"  width="100%">
+  </div>
+  <div style="width: 48%;">
+    <img src="./public//assets/demo/localhost_5173_.png"  width="100%">
+    <img src="./public//assets/demo/localhost_5173_ (4).png"  width="100%">
+    <img src="./public//assets/demo/localhost_5173_ (5).png"  width="100%">
+  </div>
+</div>
+
+
 ### Features
 - **Data Crawling**: Fetches F1 data (races, drivers, teams) from a server with real-time progress updates using Web Workers and WebSocket.
 - **Interactive Filters**: Users can filter data by year, race type (e.g., races, drivers, teams), and Grand Prix events.
